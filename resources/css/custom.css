@@ -165,6 +165,50 @@ a{
     height: 300px;
 }
 
+.grid-layout {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 kolom */
+    grid-auto-rows: 150px; /* tinggi default */
+    gap: 1rem;
+}
+
+.grid-item {
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+}
+
+.span-2x2 {
+    grid-column: span 1;
+    grid-row: span 2;
+}
+
+.span-2x1 {
+    grid-column: span 2;
+}
+
+.span-1x2 {
+    grid-row: span 2;
+}
+
+@media (max-width: 992px) {
+    .masonry {
+        column-count: 1;
+    }
+}
+
+@media (max-width: 768px) {
+    .masonry {
+        column-count: 1;
+    }
+}
+
+@media (max-width: 576px) {
+    .masonry {
+        column-count: 1;
+    }
+}
+
 @media (max-width: 767.98px) {
     .navbar h4 {
         margin: 0;

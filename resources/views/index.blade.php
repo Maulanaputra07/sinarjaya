@@ -4,32 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sinar Jaya Prasasti</title>
-    @vite(['resources/js/app.js'])
-    {{-- <link rel="stylesheet" href="./src/css/bootstrap.min.css">
-    <link rel="stylesheet" href="./src/css/style.css"> --}}
+    <link rel="stylesheet" href="{{ asset('src/css/bootstrap.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('src/css/style.css') }}" />
 </head>
 <body>
-    <navbar class="navbar align-items-center justify-content-between flex-wrap px-4">
+    <navbar class="navbar align-items-center justify-content-between flex-wrap px-4" style="position: fixed; width: 100%; top: 0; z-index: 1000; background-color: rgba(255, 255, 255, 0.9)">
         <div class="wrapper d-flex justify-content-between d-md-block">
             <h4 class="fw-semibold">Sinar Jaya Prasasti</h4>
 
             <div class="pesan-whatsapp bg-success p-2 text-white rounded d-flex align-items-center d-md-none" onclick="openWhatsapp()">
                 <span class="px-1">
-                    <img src="{{ asset('images/icon/wa.png')}}" alt="wa" style="width: 1.2em;" />
+                    <img src="{{ asset('src/assets/icon/wa.png') }}" alt="wa" style="width: 1.2em;" />
                 </span>
                 Pesan Sekarang
             </div>
         </div>
         <div class="link d-none d-md-flex">
-            <a class="p-2" href="#">Beranda</a>
-            <a class="p-2" href="#produk">Produk</a>
+            <a class="p-2 fw-semibold nav-menu" href="/#">Beranda</a>
+            <a class="p-2 fw-semibold nav-menu" href="/#produk">Produk</a>
+            <a class="p-2 fw-semibold nav-menu" href="/#blog">Blog</a>
         </div>
 
         <div class="pesan-whatsapp bg-success p-2 text-white rounded d-none d-md-block" style="cursor: pointer;" onclick="openWhatsapp()">
-            <span class="px-2"><img src="{{ asset('images/icon/wa.png')}}" alt="wa" style="width: 1.2em;" /></span>Pesan Sekarang >
+            <span class="px-2"><img src="{{ asset('src/assets/icon/wa.png') }}" alt="wa" style="width: 1.2em;" /></span>Pesan Sekarang >
         </div>
     </navbar>
-    <div class="content">
+    <div class="content" style="margin-top: 4rem;">
         <div class="vh-100">
             <div class="d-flex w-100 align-items-center position-relative" style="min-height: 90vh; background-color: var(--maincolor);">
                 <div class="h-100">
@@ -41,18 +41,18 @@
                         <div class="d-flex flex-column w-100 h-100">
                             <div class="d-flex w-100" style="height: 50%;">
                                 <div class="h-100" style="aspect-ratio: 1;">
-                                    <img src="{{ asset('images/img1.jpg')}}" class="img-fluid w-100 h-100" style="object-fit: cover;" />
+                                    <img src="./src/assets/img1.jpg" class="img-fluid w-100 h-100" style="object-fit: cover;" />
                                 </div>
                                 <div class="flex-grow-1 h-100">
-                                    <img src="{{ asset('images/img2.jpg')}}" class="img-fluid w-100 h-100" style="object-fit: cover;" />
+                                    <img src="./src/assets/img2.jpg" class="img-fluid w-100 h-100" style="object-fit: cover;" />
                                 </div>
                             </div>
                             <div class="d-flex w-100" style="height: 50%;">
                                 <div class="flex-grow-1 h-100">
-                                    <img src="{{ asset('images/img3.jpg')}}" class="img-fluid w-100 h-100" style="object-fit: cover;" />
+                                    <img src="./src/assets/img3.jpg" class="img-fluid w-100 h-100" style="object-fit: cover;" />
                                 </div>
                                 <div class="h-100" style="aspect-ratio: 1;">
-                                    <img src="{{ asset('images/img4.jpg')}}" class="img-fluid w-100 h-100" style="object-fit: cover;" />
+                                    <img src="./src/assets/img4.jpg" class="img-fluid w-100 h-100" style="object-fit: cover;" />
                                 </div>
                             </div>
                         </div>
@@ -60,55 +60,108 @@
                 </div>
             </div>
         </div>
-        <div class="min-vh-100 w-100 pb-5 pt-3 mb-5" id="produk">
+        <div class="min-vh-95 w-100 pb-5 pt-3 mb-5" id="produk">
             <p class="title-produk text-center fw-semibold pb-5" style="text-decoration: underline;">Produk Yang Kami Sediakan</p>
             <div class="produk-parent d-flex flex-column px-4 align-items-center justify-content-center " style="gap: 5em;">
                 <div class="flex-produk-parent">
                     <div class="jenis-produk">
                         <div class="img-jenis-produk">
-                            <img src="{{ asset('images/thumbnailPatok.jpeg') }}" alt="patok">
+                            <img src="{{asset('images/thumbnailPatok.jpeg')}}" alt="kijing">
                         </div>
-                        <div class="text-jenis-produk">
-                            <p class="fs-3 fw-bold">PATOK/NISAN</p>
-                            <p>Berbagai jenis patok dan nisan makam dengan kualitas terbaik dan ketahanan tinggi.</p>
+                    <div class="text-jenis-produk">
+                        <p class="fs-3 fw-bold">PATOK/NISAN</p>
+                        <p>Berbagai jenis patok dan nisan makam dengan kualitas terbaik dan ketahanan tinggi.</p>
+                        <div class="d-flex">
+                            <a href="pages/patok"
+                               class="btn btn-outline-warning btn-sm rounded-pill px-4 fw-semibold text-black"
+                               style="background-color: var(--maincolor); font-size: 1rem; text-decoration: none; margin-top: 2em;">
+                                Lihat Produk >
+                            </a>
                         </div>
+                    </div>
                     </div>
                     <div class="jenis-produk">
                         <div class="img-jenis-produk">
-                            <img src="{{ asset('images/thumbnailPrasasti.jpeg') }}" alt="prasasti">
+                            <img src="{{asset('images/thumbnailPrasasti.jpeg')}}" alt="kijing">
                         </div>
                         <div class="text-jenis-produk">
                             <p class="fs-3 fw-bold">PRASASTI</p>
                             <p>Prasasti peresmian proyek, monumen, sekolah, kantor, dan sebagainya.</p>
+                            <div class="d-flex">
+                                <a href="pages/prasasti"
+                                   class="btn btn-outline-warning btn-sm rounded-pill px-4 fw-semibold text-black"
+                                   style="background-color: var(--maincolor); font-size: 1rem; text-decoration: none; margin-top: 2em;">
+                                    Lihat Produk >
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="flex-produk-parent">
                     <div class="jenis-produk">
                         <div class="img-jenis-produk">
-                            <img src="{{ asset('images/thumbnailKijing.jpeg') }}" alt="kijing">
+                            <img src="{{asset('images/thumbnailKijing.jpeg')}}" alt="kijing">
                         </div>
                         <div class="text-jenis-produk">
                             <p class="fs-3 fw-bold">KIJING</p>
                             <p>Kijing makam dengan beragam model dan material berkualitas.</p>
+                            <div class="d-flex">
+                                <a href="pages/kijing"
+                                   class="btn btn-outline-warning btn-sm rounded-pill px-4 fw-semibold text-black"
+                                   style="background-color: var(--maincolor); font-size: 1rem; text-decoration: none; margin-top: 2em;">
+                                    Lihat Produk >
+                                </a>
+                            </div>
                         </div>
                     </div>
                     <div class="jenis-produk">
                         <div class="img-jenis-produk">
-                            <img src="{{ asset('images/thumbnailKepalaKijing.jpeg') }}" alt="kijing">
+                            <img src="{{asset('images/thumbnailKepalaKijing.jpeg')}}" alt="kijing">
                         </div>
                         <div class="text-jenis-produk">
                             <p class="fs-3 fw-bold">KEPALA KIJING</p>
                             <p>Kepala Kijing sebagai penanda utama dan identitas makam.</p>
+                            <div class="d-flex">
+                                <a href="pages/kepalakijing"
+                                   class="btn btn-outline-warning btn-sm rounded-pill px-4 fw-semibold text-black"
+                                   style="background-color: var(--maincolor); font-size: 1rem; text-decoration: none; margin-top: 2em;">
+                                    Lihat Produk >
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
                 </div>
-                <div class="d-flex justify-content-center py-3 my-3">
-                    <a href="/sinarjaya/pages/product.php" class="px-4 py-3 fw-semibold rounded text-center text-black" style="text-decoration: none; font-size: 1rem; background-color: var(--maincolor);">Jelajahi Produk</a>
-                </div>
             </div>
         </div>
+    </div>
+
+    <div class="min-vh-80 w-100 pb-5 mb-5" id="blog" style="display: flex; flex-direction: column; align-items: center;">
+      <p class="title-produk text-center fw-semibold pb-5" style="text-decoration: underline;">Blog</p>
+      <div class="d-flex justify-content-center" style="gap: 5rem; flex-wrap: wrap;">
+        @foreach ($blogs as $blog)
+        <a href="{{ url('blog/'.$blog->id) }}">
+            <div class="card" style="width: 24rem;">
+                <img src="{{ asset('storage/' . $blog->thumbnail) }}" class="card-img-top mb-3" style="height: 14rem;" alt="Blog image">
+                <div class="d-flex align-items-center ms-3 mb-2" style="gap: 0.5rem; padding-right: 1rem;">
+                    <h5 class="m-0 title-blog" style="flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                        {{ $blog->title }}
+                    </h5>
+                    <span style="font-size: 0.85rem; color: gray; white-space: nowrap;">29 Mei 2025</span>
+                </div>
+                <div class="card-body">
+                    <p class="card-text text-truncate">
+                        {!! $blog->text !!}
+                    </p>
+                    <div class="mt-3">
+                        <button class="btn btn-sm btn-outline-warning rounded-pill px-3">{{ $blog->tags}}</button>
+                        <button class="btn btn-sm btn-outline-warning rounded-pill px-3">#Detail</button>
+                    </div>
+                </div>
+            </div>
+        </a>
+        @endforeach
+      </div>
     </div>
 
     <div class="footer w-100 d-flex flex-column justify-content-between mt-5" style="min-height: 60vh;">
@@ -119,19 +172,19 @@
                 </h2>
                 <div class="footer-info-item d-flex gap-2 align-items-center">
                     <div class="icon d-flex align-items-center p-3">
-                        <img src="{{ asset('images/icon/loc.png')}}" alt="loc">
+                        <img src="{{ asset('src/assets/icon/loc.png') }}" alt="loc">
                     </div>
                     <p>Jl. Raya Pati-Kayen, Blaru, Kec. Pati, Kabupaten Pati, Jawa Tengah 59114</p>
                 </div>
                 <div class="footer-info-item d-flex gap-2 align-items-center">
                     <div class="icon d-flex align-items-center p-3" style="background-color: #198754; border-radius:100%">
-                        <img src="{{ asset('images/icon/wa.png')}}" alt="loc">
+                        <img src="{{ asset('src/assets/icon/wa.png') }}" alt="loc">
                     </div>
                     <a href="https://wa.me/+6281325696614" class="text-white" style="text-decoration: none;">+62 813-2569-6614</a>
                 </div>
                 <div class="footer-info-item d-flex gap-2 align-items-center">
                     <div class="icon d-flex align-items-center p-3" style="background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); border-radius:100%">
-                        <img src="{{ asset('images/icon/insta.png')}}" alt="loc">
+                        <img src="{{ asset('src/assets/icon/insta.png') }}" alt="loc">
                     </div>
                     <a href="https://www.instagram.com/sunartosinarjaya?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="text-white" style="text-decoration: none;">@sunartosinarjaya</a>
                 </div>
