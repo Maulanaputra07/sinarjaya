@@ -31,6 +31,11 @@
             <span class="px-2"><img src="{{ asset('src/assets/icon/wa.png') }}" alt="wa" style="width: 1.2em;" /></span>Pesan Sekarang >
         </div>
     </navbar>
+    <div id="imagePreview" class="preview-container d-none">
+        <div class="backdrop"></div>
+        <button class="close-preview" onclick="closePreview()">x</button>
+        <img id="previewImg" class="preview-img" src="" alt="Preview">
+    </div>
     <div class="content" style="margin-top: 4rem;">
         <div class="vh-50">
             <div class="card-title-produk d-flex align-items-center ps-5" style="background: url('{{asset('images/thumbnail'.$kategori.'.jpeg')}}'); background-size: cover; background-position: center;">
@@ -95,6 +100,23 @@
         const nomor = "6281325696614"
         const url = `https://wa.me/${nomor}`
         window.open(url, '_blank')
+    }
+
+    document.querySelectorAll('.grid-item').forEach(item => {
+        item.addEventListener('click', () => {
+        const previewContainer = document.getElementById('imagePreview');
+        const previewImg = document.getElementById('previewImg');
+
+        const bgImage = item.style.backgroundImage;
+        const imgUrl = bgImage.slice(5, -2);
+
+        previewImg.src = imgUrl;
+        previewContainer.classList.remove('d-none');
+        });
+    });
+
+    function closePreview() {
+        document.getElementById('imagePreview').classList.add('d-none');
     }
 </script>
 </html>
