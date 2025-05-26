@@ -73,8 +73,7 @@
                         <p>Berbagai jenis patok dan nisan makam dengan kualitas terbaik dan ketahanan tinggi.</p>
                         <div class="d-flex">
                             <a href="pages/patok"
-                               class="btn btn-outline-warning btn-sm rounded-pill px-4 fw-semibold text-black"
-                               style="background-color: var(--maincolor); font-size: 1rem; text-decoration: none; margin-top: 2em;">
+                                class="btn btn-detail-product btn-outline-warning btn-sm rounded-pill px-4 fw-semibold text-black">
                                 Lihat Produk >
                             </a>
                         </div>
@@ -89,8 +88,7 @@
                             <p>Prasasti peresmian proyek, monumen, sekolah, kantor, dan sebagainya.</p>
                             <div class="d-flex">
                                 <a href="pages/prasasti"
-                                   class="btn btn-outline-warning btn-sm rounded-pill px-4 fw-semibold text-black"
-                                   style="background-color: var(--maincolor); font-size: 1rem; text-decoration: none; margin-top: 2em;">
+                                    class="btn btn-detail-product btn-outline-warning btn-sm rounded-pill px-4 fw-semibold text-black">
                                     Lihat Produk >
                                 </a>
                             </div>
@@ -107,8 +105,8 @@
                             <p>Kijing makam dengan beragam model dan material berkualitas.</p>
                             <div class="d-flex">
                                 <a href="pages/kijing"
-                                   class="btn btn-outline-warning btn-sm rounded-pill px-4 fw-semibold text-black"
-                                   style="background-color: var(--maincolor); font-size: 1rem; text-decoration: none; margin-top: 2em;">
+                                    class="btn btn-detail-product btn-outline-warning btn-sm rounded-pill px-4 fw-semibold text-black"
+                                    style="">
                                     Lihat Produk >
                                 </a>
                             </div>
@@ -123,8 +121,7 @@
                             <p>Kepala Kijing sebagai penanda utama dan identitas makam.</p>
                             <div class="d-flex">
                                 <a href="pages/kepalakijing"
-                                   class="btn btn-outline-warning btn-sm rounded-pill px-4 fw-semibold text-black"
-                                   style="background-color: var(--maincolor); font-size: 1rem; text-decoration: none; margin-top: 2em;">
+                                    class="btn btn-detail-product btn-outline-warning btn-sm rounded-pill px-4 fw-semibold text-black">
                                     Lihat Produk >
                                 </a>
                             </div>

@@ -1,4 +1,4 @@
-@vite(['resources/js/app.js']);
+{{-- @vite(['resources/js/app.js']); --}}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -6,8 +6,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sinar Jaya Prasasti</title>
-    {{-- <link rel="stylesheet" href="{{ asset('src/css/bootstrap.min.css') }}" />
-    <link rel="stylesheet" href="{{ asset('src/css/style.css') }}" /> --}}
+    <link rel="stylesheet" href="{{ asset('src/css/bootstrap.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('src/css/style.css') }}" />
 </head>
 <body>
     <navbar class="navbar align-items-center justify-content-between flex-wrap px-4" style="position: fixed; width: 100%; top: 0; z-index: 1000; background-color: rgba(255, 255, 255, 0.9)">
@@ -37,7 +37,7 @@
         <img id="previewImg" class="preview-img" src="" alt="Preview">
     </div>
     <div class="content" style="margin-top: 4rem;">
-        <div class="vh-50">
+        <div class="" style="min-height: 50vh">
             <div class="card-title-produk d-flex align-items-center ps-5" style="background: url('{{asset('images/thumbnail'.$kategori.'.jpeg')}}'); background-size: cover; background-position: center;">
                 <p class="title-detail-produk fs-1 ps-5 fw-semibold d-flex align-items-center" style="background-color: rgba(255,255,255,0.85);">{{ ucfirst($kategori) }}</p>
             </div>

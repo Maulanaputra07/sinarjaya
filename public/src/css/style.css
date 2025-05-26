@@ -68,9 +68,16 @@ a{
     height: 50% !important;
 }
 
+.btn-detail-product{
+    background-color: var(--maincolor);
+    font-size: 1rem;
+    text-decoration: none;
+    margin-top: 0.5em;
+}
+
 .card-title-produk{
     width: 100% !important;
-    height: 50% ;
+    height: 50vh !important;
 }
 
 .img-jenis-produk > img {
@@ -320,5 +327,9 @@ a{
 
     .title-detail-produk{
         width: 80%;
+    }
+
+    .btn-detail-product{
+        font-size: 0.9em;
     }
 }
