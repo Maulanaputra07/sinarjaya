@@ -16,7 +16,7 @@
 
             <div class="pesan-whatsapp bg-success p-2 text-white rounded d-flex align-items-center d-md-none" onclick="openWhatsapp()">
                 <span class="px-1">
-                    <img src="{{ asset('src/assets/icon/wa.png') }}" alt="wa" style="width: 1.2em;" />
+                    <img src="{{ asset('images/icon/wa.png') }}" alt="wa" style="width: 1.2em;" />
                 </span>
                 Pesan Sekarang
             </div>
@@ -28,7 +28,7 @@
         </div>
 
         <div class="pesan-whatsapp bg-success p-2 text-white rounded d-none d-md-block" style="cursor: pointer;" onclick="openWhatsapp()">
-            <span class="px-2"><img src="{{ asset('src/assets/icon/wa.png') }}" alt="wa" style="width: 1.2em;" /></span>Pesan Sekarang >
+            <span class="px-2"><img src="{{ asset('images/icon/wa.png') }}" alt="wa" style="width: 1.2em;" /></span>Pesan Sekarang >
         </div>
     </navbar>
     <div id="imagePreview" class="preview-container d-none">
@@ -67,19 +67,19 @@
                 </h2>
                 <div class="footer-info-item d-flex gap-2 align-items-center">
                     <div class="icon d-flex align-items-center p-3">
-                        <img src="{{ asset('src/assets/icon/loc.png') }}" alt="loc">
+                        <img src="{{ asset('images/icon/loc.png') }}" alt="loc">
                     </div>
                     <p>Jl. Raya Pati-Kayen, Blaru, Kec. Pati, Kabupaten Pati, Jawa Tengah 59114</p>
                 </div>
                 <div class="footer-info-item d-flex gap-2 align-items-center">
                     <div class="icon d-flex align-items-center p-3" style="background-color: #198754; border-radius:100%">
-                        <img src="{{ asset('src/assets/icon/wa.png') }}" alt="loc">
+                        <img src="{{ asset('images/icon/wa.png') }}" alt="loc">
                     </div>
                     <a href="https://wa.me/+6281325696614" class="text-white" style="text-decoration: none;">+62 813-2569-6614</a>
                 </div>
                 <div class="footer-info-item d-flex gap-2 align-items-center">
                     <div class="icon d-flex align-items-center p-3" style="background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); border-radius:100%">
-                        <img src="{{ asset('src/assets/icon/insta.png') }}" alt="loc">
+                        <img src="{{ asset('images/icon/insta.png') }}" alt="loc">
                     </div>
                     <a href="https://www.instagram.com/sunartosinarjaya?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="text-white" style="text-decoration: none;">@sunartosinarjaya</a>
                 </div>
