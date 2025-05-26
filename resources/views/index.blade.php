@@ -147,7 +147,7 @@
                     <h5 class="m-0 title-blog" style="flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
                         {{ $blog->title }}
                     </h5>
-                    <span style="font-size: 0.85rem; color: gray; white-space: nowrap;">29 Mei 2025</span>
+                    <span style="font-size: 0.85rem; color: gray; white-space: nowrap;">{{$blog->created_at->format('d F Y')}}</span>
                 </div>
                 <div class="card-body">
                     <p class="card-text text-truncate">
@@ -155,7 +155,7 @@
                     </p>
                     <div class="mt-3">
                         <button class="btn btn-sm btn-outline-warning rounded-pill px-3">{{ $blog->tags}}</button>
-                        <button class="btn btn-sm btn-outline-warning rounded-pill px-3">#Detail</button>
+                        {{-- <button class="btn btn-sm btn-outline-warning rounded-pill px-3">#Detail</button> --}}
                     </div>
                 </div>
             </div>

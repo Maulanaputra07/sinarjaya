@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Sinar Jaya Prasasti - {{ $blog->judul }}</title>
+    <title>Sinar Jaya Prasasti - {{ $blog->title }}</title>
     <link rel="stylesheet" href="{{ asset('src/css/bootstrap.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('src/css/style.css') }}" />
 </head>
@@ -33,17 +33,18 @@
 
     <main class="container-fluid px-3 px-md-5" style="margin-top: 100px;">
         <div class="w-100">
-            <img src="{{ asset('storage/' . $blog->thumbnail) }}" 
-                 alt="Thumbnail" 
-                 class="img-fluid w-100 mb-4" 
+            <img src="{{ asset('storage/' . $blog->thumbnail) }}"
+                 alt="Thumbnail"
+                 class="img-fluid w-100 mb-4"
                  style="max-height: 600px; object-fit: cover; border-radius: 10px;">
         </div>
         <div class="w-100 mb-5 px-2 px-md-0">
-            <h1 class="fw-bold mb-3 fs-4 fs-md-1">{{ $blog->judul }}</h1>
-            <p class="text-muted mb-4 fs-6 fs-md-5">Dipublikasikan pada {{ $formattedDate }}</p>
+            <h1 class="fw-bold mb-3 fs-4 fs-md-1">{{ $blog->title }}</h1>
+            <p class="text-muted mb-4 fs-6 fs-md-5">Dipublikasikan pada {{$blog->created_at->format('d F Y')}}</p>
             <div class="fs-6 fs-md-5 lh-lg description-blog" style="text-align: justify;">
-                {!! nl2br(e($blog->deskripsi)) !!}
+                {!! $blog->text !!}
             </div>
+            <button class="btn btn-sm btn-outline-warning rounded-pill px-3 mt-3">{{ $blog->tags}}</button>
         </div>
     </main>
 

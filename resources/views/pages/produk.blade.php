@@ -6,8 +6,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sinar Jaya Prasasti</title>
-    {{-- <link rel="stylesheet" href="{{ asset('src/css/bootstrap.min.css') }}" /> --}}
-    <link rel="stylesheet" href="{{ asset('') }}" />
+    {{-- <link rel="stylesheet" href="{{ asset('src/css/bootstrap.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('src/css/style.css') }}" /> --}}
 </head>
 <body>
     <navbar class="navbar align-items-center justify-content-between flex-wrap px-4" style="position: fixed; width: 100%; top: 0; z-index: 1000; background-color: rgba(255, 255, 255, 0.9)">
@@ -32,9 +32,9 @@
         </div>
     </navbar>
     <div class="content" style="margin-top: 4rem;">
-        <div class="vh-25 mb-5">
-            <div class="w-100 h-50 d-flex align-items-center ps-5" style="background: url('{{asset('images/thumbnail'.$kategori.'.jpeg')}}'); background-size: fill; background-position: center;">
-                <p class="fs-1 ps-5 fw-semibold d-flex align-items-center w-50 h-50" style="background-color: rgba(255,255,255,0.85);">{{ ucfirst($kategori) }}</p>
+        <div class="vh-50">
+            <div class="card-title-produk d-flex align-items-center ps-5" style="background: url('{{asset('images/thumbnail'.$kategori.'.jpeg')}}'); background-size: cover; background-position: center;">
+                <p class="title-detail-produk fs-1 ps-5 fw-semibold d-flex align-items-center" style="background-color: rgba(255,255,255,0.85);">{{ ucfirst($kategori) }}</p>
             </div>
         </div>
         <div class="p-5">

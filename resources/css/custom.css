@@ -63,6 +63,16 @@ a{
     border-radius: 16px;
 }
 
+.title-detail-produk{
+    width: 50%;
+    height: 50% !important;
+}
+
+.card-title-produk{
+    width: 100% !important;
+    height: 50% ;
+}
+
 .img-jenis-produk > img {
     height: 100%;
     width: 100%;
@@ -167,9 +177,10 @@ a{
 
 .grid-layout {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 kolom */
-    grid-auto-rows: 150px; /* tinggi default */
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 200px;
     gap: 1rem;
+    grid-auto-flow: dense;
 }
 
 .grid-item {
@@ -198,8 +209,17 @@ a{
 }
 
 @media (max-width: 768px) {
-    .masonry {
-        column-count: 1;
+    .grid-layout {
+        grid-template-columns: 1fr !important; /* Satu kolom */
+        grid-auto-rows: 200px; /* Ukuran tetap */
+    }
+
+    /* Reset span di mobile agar semua item sama */
+    .span-2x2,
+    .span-2x1,
+    .span-1x2 {
+        grid-column: span 1 !important;
+        grid-row: span 1 !important;
     }
 }
 
@@ -291,5 +311,14 @@ a{
     .scroll-img{
         width: 200px;
         height: 200px;
+    }
+
+    .card-title-produk{
+        width: 100%;
+        height: 25%;
+    }
+
+    .title-detail-produk{
+        width: 80%;
     }
 }

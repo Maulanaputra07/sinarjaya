@@ -39,20 +39,15 @@ a{
 }
 
 .desc{
-    max-width: 85%; 
+    max-width: 85%;
     margin-top: 0;
 }
 
-.nav-menu:hover{
-    text-decoration: underline;
-    cursor: pointer;
-}
-
 .card-title{
-    z-index: 2; 
-    width: 50vw; 
-    max-width: 80vw; 
-    height: 20em; 
+    z-index: 2;
+    width: 50vw;
+    max-width: 80vw;
+    height: 20em;
     background-color: rgba(255,255,255,0.85);
 }
 
@@ -75,8 +70,8 @@ a{
 }
 
 .img-title{
-    z-index: 1; 
-    margin-left: -20%; 
+    z-index: 1;
+    margin-left: -20%;
     height: 110%;
 }
 
@@ -95,7 +90,7 @@ a{
 
 .main-footer{
     color: white;
-    
+
 }
 
 .footer-info-item > .icon > img{
@@ -170,21 +165,54 @@ a{
     height: 300px;
 }
 
-.title-blog:hover{
-    text-decoration: underline;
-    cursor: pointer;
+.grid-layout {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 kolom */
+    grid-auto-rows: 150px; /* tinggi default */
+    gap: 1rem;
+}
+
+.grid-item {
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+}
+
+.span-2x2 {
+    grid-column: span 1;
+    grid-row: span 2;
+}
+
+.span-2x1 {
+    grid-column: span 2;
+}
+
+.span-1x2 {
+    grid-row: span 2;
+}
+
+@media (max-width: 992px) {
+    .masonry {
+        column-count: 1;
+    }
+}
+
+@media (max-width: 768px) {
+    .masonry {
+        column-count: 1;
+    }
+}
+
+@media (max-width: 576px) {
+    .masonry {
+        column-count: 1;
+    }
 }
 
 @media (max-width: 767.98px) {
     .navbar h4 {
         margin: 0;
     }
-
-    .card {
-        width: 18rem !important;
-        margin: 0 auto 2rem auto;
-    }
-
 
     .img-title{
         width:100%;
@@ -243,7 +271,7 @@ a{
 
     .pesan-whatsapp {
         width: 150px;
-        font-size: 0.7rem; 
+        font-size: 0.7rem;
         padding: 0;
     }
 
@@ -263,15 +291,5 @@ a{
     .scroll-img{
         width: 200px;
         height: 200px;
-    }
-    .description-blog{
-        font-size: 0.875rem;
-        line-height: 1.5;
-        text-align: justify;
-        white-space: normal;
-        word-wrap: break-word;
-        overflow-wrap: break-word;
-        hyphens: auto;
-
     }
 }
