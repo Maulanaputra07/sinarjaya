@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sinar Jaya Prasasti</title>
+    <title>Sinar Jaya Prasasti - {{$kategori}}</title>
     <link rel="stylesheet" href="{{ asset('src/css/bootstrap.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('src/css/style.css') }}" />
 </head>
@@ -57,6 +57,36 @@
                 @endforeach
             </div>
         </div>
+        <span>
+            <p class="fs-1 text-center my-3 fw-semibold" style="text-decoration: underline">
+                Blogs {{$kategori}}
+            </p>
+        </span>
+        <div class="d-flex justify-content-center" style="gap: 5rem; flex-wrap: wrap;">
+            @foreach ($blogs as $blog)
+            <a href="{{ url('blog/'.$blog->id) }}">
+                <div class="card" style="width: 24rem;">
+                    <img src="{{ asset('storage/' . $blog->thumbnail) }}" class="card-img-top mb-3" style="height: 14rem;" alt="Blog image">
+                    <div class="d-flex align-items-center ms-3 mb-2" style="gap: 0.5rem; padding-right: 1rem;">
+                        <h5 class="m-0 title-blog" style="flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                            {{ $blog->title }}
+                        </h5>
+                        <span style="font-size: 0.85rem; color: gray; white-space: nowrap;">{{$blog->created_at->format('d F Y')}}</span>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text text-truncate">
+                            {!! substr($blog->text, 0, 100) . '...' !!}
+                        </p>
+                        <div class="mt-3">
+                            @foreach (explode(',', $blog->tags) as $tag)
+                                <button class="btn btn-sm btn-outline-warning rounded-pill px-3 my-1"> #{{ trim($tag) }}</button>
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+            </a>
+            @endforeach
+            </div>
     </div>
 
     <div class="footer w-100 d-flex flex-column justify-content-between mt-5" style="min-height: 60vh;">

@@ -135,7 +135,7 @@
 
     <div class="min-vh-80 w-100 pb-5 mb-5" id="blog" style="display: flex; flex-direction: column; align-items: center;">
       <p class="title-produk text-center fw-semibold pb-5" style="text-decoration: underline;">Blog</p>
-      <div class="d-flex justify-content-center" style="gap: 5rem; flex-wrap: wrap;">
+        <div class="d-flex justify-content-center" style="gap: 5rem; flex-wrap: wrap;">
         @foreach ($blogs as $blog)
         <a href="{{ url('blog/'.$blog->id) }}">
             <div class="card" style="width: 24rem;">
@@ -148,17 +148,18 @@
                 </div>
                 <div class="card-body">
                     <p class="card-text text-truncate">
-                        {!! $blog->text !!}
+                        {!! substr($blog->text, 0, 100) . '...' !!}
                     </p>
                     <div class="mt-3">
-                        <button class="btn btn-sm btn-outline-warning rounded-pill px-3">{{ $blog->tags}}</button>
-                        {{-- <button class="btn btn-sm btn-outline-warning rounded-pill px-3">#Detail</button> --}}
+                        @foreach (explode(',', $blog->tags) as $tag)
+                            <button class="btn btn-sm btn-outline-warning rounded-pill px-3 my-1"> #{{ trim($tag) }}</button>
+                        @endforeach
                     </div>
                 </div>
             </div>
         </a>
         @endforeach
-      </div>
+        </div>
     </div>
 
     <div class="footer w-100 d-flex flex-column justify-content-between mt-5" style="min-height: 60vh;">
