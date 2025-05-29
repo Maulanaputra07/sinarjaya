@@ -7,6 +7,7 @@ use Filament\Notifications\Notification;
 use Filament\Pages\Page;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Filament\Pages\Dashboard;
 
 class ChangePassword extends Page implements Forms\Contracts\HasForms
 {
