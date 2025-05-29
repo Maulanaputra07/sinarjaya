@@ -7,4 +7,4 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [ShowDataController::class, 'index']);
 Route::get('/pages/{kategori}', [ProductController::class, 'show']);
-route::get('/blog/{id}', [BlogController::class, 'show']);
+Route::get('/blog/{id}', [BlogController::class, 'show']);

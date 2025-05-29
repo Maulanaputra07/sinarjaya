@@ -7,7 +7,9 @@ use App\Filament\Resources\BlogResource\RelationManagers;
 use App\Models\Blog;
 use Filament\Forms;
 use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\MarkdownEditor;
 use Filament\Forms\Components\RichEditor;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -18,6 +20,8 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class BlogResource extends Resource
 {
@@ -29,10 +33,20 @@ class BlogResource extends Resource
     {
         return $form
             ->schema([
-                TextInput::make('title'),
-                TextInput::make('tags'),
-                RichEditor::make("text"),
-                FileUpload::make("thumbnail"),
+                TextInput::make('title')->required(),
+                TextInput::make('tags')->required(),
+                Select::make('category')->placeholder('Pilih kategori blog')->options([
+                    'patok' => 'Patok/Nisan',
+                    'prasasti' => 'Prasasti',
+                    'kijing' => 'Kijing',
+                    'kepalakijing' => 'Kepala Kijing',
+                    'lainnya' => 'Lainnya...'
+                ])->default('patok'),
+                FileUpload::make("thumbnail")->required(),
+                RichEditor::make("text")
+                ->fileAttachmentsDisk('public') // Set a custom disk that uploaded attachments should be read from and written to.
+                ->fileAttachmentsDirectory('blog/posts')
+                ->required()->columnSpanFull(),
             ]);
     }
 

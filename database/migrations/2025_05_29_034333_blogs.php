@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('blogs', function (Blueprint $table) {
             $table->id();
             $table->string("title");
+            $table->enum('category', ['patok', 'prasasti', 'kijing', 'kepalakijing', 'lainnya']);
             $table->string("thumbnail");
             $table->string("tags");
             $table->text("text");

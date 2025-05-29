@@ -7,6 +7,20 @@
     <link rel="stylesheet" href="{{ asset('src/css/bootstrap.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('src/css/style.css') }}" />
 </head>
+<style>
+    .description-blog figure.attachment {
+        text-align: center;
+        margin: 2rem auto;
+        max-width: 80%;
+    }
+
+    .description-blog figure.attachment img {
+        display: block;
+        margin: 0 auto;
+        max-width: 100%;
+        height: auto;
+    }
+</style>
 <body>
     <!-- Navbar -->
     <nav class="navbar align-items-center justify-content-between flex-wrap px-4" style="position: fixed; width: 100%; top: 0; z-index: 1000; background-color: rgba(255, 255, 255, 0.9)">
