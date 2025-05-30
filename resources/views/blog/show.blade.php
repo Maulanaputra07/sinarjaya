@@ -58,7 +58,9 @@
             <div class="fs-6 fs-md-5 lh-lg description-blog" style="text-align: justify;">
                 {!! $blog->text !!}
             </div>
-            <button class="btn btn-sm btn-outline-warning rounded-pill px-3 mt-3">{{ $blog->tags}}</button>
+            @foreach (explode(',', $blog->tags) as $tag)
+                <button class="btn btn-sm btn-outline-warning rounded-pill px-3 my-1"> #{{ trim($tag) }}</button>
+            @endforeach
         </div>
     </main>
 

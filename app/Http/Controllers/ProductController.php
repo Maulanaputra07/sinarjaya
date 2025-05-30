@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\File;
 class ProductController extends Controller
 {
     public function show($kategori){
-        $blogs = Blog::all();
+        $blogs = Blog::where('category', $kategori)->get();
 
         $folderPath = public_path("images/$kategori");
 
