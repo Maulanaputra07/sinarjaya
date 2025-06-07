@@ -61,13 +61,6 @@
     </div>
 
     <main class="container-fluid px-3 px-md-5" style="margin-top: 100px;">
-        {{-- <div aria-label="breadcrumb">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item">
-                    <a href="{{ url('/') }}">Kembali</a>
-                </li>
-            </ol>
-        </div> --}}
         <div class="w-100">
             <img src="{{ asset('storage/' . $blog->thumbnail) }}"
                 alt="Thumbnail"
