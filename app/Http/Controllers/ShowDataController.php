@@ -8,8 +8,7 @@ class ShowDataController extends Controller
 {
     public function index()
     {
-        $blogs = Blog::all();
-
+        $blogs = Blog::latest()->take(3)->get();
         return view('index', compact('blogs'));
     }
 }
