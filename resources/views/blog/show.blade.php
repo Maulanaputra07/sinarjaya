@@ -23,17 +23,15 @@
 </style>
 <body>
     <!-- Navbar -->
-    <nav class="navbar align-items-center justify-content-between flex-wrap px-4" style="position: fixed; width: 100%; top: 0; z-index: 1000; background-color: rgba(255, 255, 255, 0.9)">
+    <nav class="navbar align-items-center justify-content-between flex-wrap px-4" style="position: fixed; width: 100%; top: 0; z-index: 1; background-color: rgba(255, 255, 255, 0.9)">
+
         <div class="wrapper d-flex justify-content-between d-md-block">
             <h4 class="fw-semibold">Sinar Jaya Prasasti</h4>
-
-            <div class="pesan-whatsapp bg-success p-2 text-white rounded d-flex align-items-center d-md-none" onclick="openWhatsapp()">
-                <span class="px-1">
-                    <img src="{{ asset('images/icon/wa.png') }}" alt="wa" style="width: 1.2em;" />
-                </span>
-                Pesan Sekarang
+            <div onclick="toggleSideBar()" class="d-block d-md-none" style="cursor: pointer;">
+                <img src="{{asset('images/icon/list.png')}}" alt="">
             </div>
         </div>
+
         <div class="link d-none d-md-flex">
             <a class="p-2 fw-semibold nav-menu" href="/#">Beranda</a>
             <a class="p-2 fw-semibold nav-menu" href="/#produk">Produk</a>
@@ -45,12 +43,36 @@
         </div>
     </nav>
 
+    <div id="sidebar" class="sidebar">
+        <div class="mb-4 text-end" onclick="closeSideBar()" style="cursor: pointer;">
+            <img src="{{asset('images/icon/x.png')}}" alt="">
+        </div>
+        <div class="d-flex flex-column">
+            <div class="pesan-whatsapp bg-success p-2 text-white rounded d-flex align-items-center d-md-none" onclick="openWhatsapp()">
+                <span class="px-1">
+                    <img src="{{ asset('images/icon/wa.png') }}" alt="wa" style="width: 1.2em;" />
+                </span>
+                Pesan Sekarang
+            </div>
+            <a class="p-2 fw-semibold nav-menu" href="/#">Beranda</a>
+            <a class="p-2 fw-semibold nav-menu" href="/#produk">Produk</a>
+            <a class="p-2 fw-semibold nav-menu" href="/#blog">Blog</a>
+        </div>
+    </div>
+
     <main class="container-fluid px-3 px-md-5" style="margin-top: 100px;">
+        {{-- <div aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="{{ url('/') }}">Kembali</a>
+                </li>
+            </ol>
+        </div> --}}
         <div class="w-100">
             <img src="{{ asset('storage/' . $blog->thumbnail) }}"
-                 alt="Thumbnail"
-                 class="img-fluid w-100 mb-4"
-                 style="max-height: 600px; object-fit: cover; border-radius: 10px;">
+                alt="Thumbnail"
+                class="img-fluid w-100 mb-4"
+                style="max-height: 600px; object-fit: cover; border-radius: 10px;">
         </div>
         <div class="w-100 mb-5 px-2 px-md-0">
             <h1 class="fw-bold mb-3 fs-4 fs-md-1">{{ $blog->title }}</h1>
@@ -61,6 +83,12 @@
             @foreach (explode(',', $blog->tags) as $tag)
                 <button class="btn btn-sm btn-outline-warning rounded-pill px-3 my-1"> #{{ trim($tag) }}</button>
             @endforeach
+        </div>
+        <div class="d-flex align-items-center justify-content-end w-100 ">
+            <a href="/" class="d-flex align-items-center gap-1 p-2 border me-4 rounded" style="background-color: #FFA200;">
+                <img src="{{asset('images/icon/undo-2.png')}}" alt="" width="20">
+                Kembali
+            </a>
         </div>
     </main>
 
@@ -105,6 +133,16 @@
             const url = `https://wa.me/${nomor}`;
             window.open(url, '_blank');
         }
+
+        function toggleSideBar(){
+            const sideBar = document.getElementById('sidebar');
+            sideBar.classList.toggle('show');
+        }
+
+        function closeSideBar(){
+            document.getElementById('sidebar').classList.remove('show');
+        }
+
     </script>
 </body>
 </html>

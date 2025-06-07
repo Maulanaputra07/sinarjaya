@@ -8,17 +8,14 @@
     <link rel="stylesheet" href="{{ asset('src/css/style.css') }}" />
 </head>
 <body>
-    <navbar class="navbar align-items-center justify-content-between flex-wrap px-4" style="position: fixed; width: 100%; top: 0; z-index: 1000; background-color: rgba(255, 255, 255, 0.9)">
+    <navbar class="navbar align-items-center justify-content-between flex-wrap px-4" style="position: fixed; width: 100%; top: 0; z-index: 3; background-color: rgba(255, 255, 255, 0.9)">
         <div class="wrapper d-flex justify-content-between d-md-block">
             <h4 class="fw-semibold">Sinar Jaya Prasasti</h4>
-
-            <div class="pesan-whatsapp bg-success p-2 text-white rounded d-flex align-items-center d-md-none" onclick="openWhatsapp()">
-                <span class="px-1">
-                    <img src="{{ asset('images/icon/wa.png') }}" alt="wa" style="width: 1.2em;" />
-                </span>
-                Pesan Sekarang
+            <div onclick="toggleSideBar()" class="d-block d-md-none" style="cursor: pointer;">
+                <img src="{{asset('images/icon/list.png')}}" alt="">
             </div>
         </div>
+
         <div class="link d-none d-md-flex">
             <a class="p-2 fw-semibold nav-menu" href="/#">Beranda</a>
             <a class="p-2 fw-semibold nav-menu" href="/#produk">Produk</a>
@@ -29,6 +26,24 @@
             <span class="px-2"><img src="{{ asset('images/icon/wa.png') }}" alt="wa" style="width: 1.2em;" /></span>Pesan Sekarang >
         </div>
     </navbar>
+
+    <div id="sidebar" class="sidebar">
+        <div class="mb-4 text-end" onclick="closeSideBar()" style="cursor: pointer;">
+            <img src="{{asset('images/icon/x.png')}}" alt="">
+        </div>
+        <div class="d-flex flex-column">
+            <div class="pesan-whatsapp bg-success p-2 text-white rounded d-flex align-items-center d-md-none" onclick="openWhatsapp()">
+                <span class="px-1">
+                    <img src="{{ asset('images/icon/wa.png') }}" alt="wa" style="width: 1.2em;" />
+                </span>
+                Pesan Sekarang
+            </div>
+            <a class="p-2 fw-semibold nav-menu" href="/#">Beranda</a>
+            <a class="p-2 fw-semibold nav-menu" href="/#produk">Produk</a>
+            <a class="p-2 fw-semibold nav-menu" href="/#blog">Blog</a>
+        </div>
+    </div>
+
     <div class="content" style="margin-top: 4rem;">
         <div class="vh-100">
             <div class="d-flex w-100 align-items-center position-relative" style="min-height: 90vh; background-color: var(--maincolor);">
@@ -203,6 +218,15 @@
         const nomor = "6281325696614"
         const url = `https://wa.me/${nomor}`
         window.open(url, '_blank')
+    }
+
+    function toggleSideBar(){
+        const sideBar = document.getElementById('sidebar');
+        sideBar.classList.toggle('show');
+    }
+
+    function closeSideBar(){
+        document.getElementById('sidebar').classList.remove('show');
     }
 </script>
 </html>
