@@ -9,6 +9,12 @@
     font-family: "Poppins", monospace, sans-serif;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+    /* border: greenyellow solid 1px; */
+}
+
+.navbar > .wrapper > h4 {
+    margin: 0;
 }
 div, a{
     font-size: 1em;

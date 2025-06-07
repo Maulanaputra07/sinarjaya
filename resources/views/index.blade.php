@@ -9,7 +9,7 @@
 </head>
 <body>
     <navbar class="navbar align-items-center justify-content-between flex-wrap px-4" style="position: fixed; width: 100%; top: 0; z-index: 3; background-color: rgba(255, 255, 255, 0.9)">
-        <div class="wrapper d-flex justify-content-between d-md-block">
+        <div class="wrapper d-flex justify-content-between align-items-center d-md-block">
             <h4 class="fw-semibold">Sinar Jaya Prasasti</h4>
             <div onclick="toggleSideBar()" class="d-block d-md-none" style="cursor: pointer;">
                 <img src="{{asset('images/icon/list.png')}}" alt="">
@@ -88,7 +88,7 @@
                         <p>Berbagai jenis patok dan nisan makam dengan kualitas terbaik dan ketahanan tinggi.</p>
                         <div class="d-flex">
                             <a href="pages/patok"
-                                class="btn btn-detail-product btn-outline-warning btn-sm rounded-pill px-4 fw-semibold text-black">
+                                class="btn btn-detail-product btn-outline-warning btn-sm rounded px-4 fw-semibold text-black">
                                 Lihat Produk >
                             </a>
                         </div>
@@ -103,7 +103,7 @@
                             <p>Prasasti peresmian proyek, monumen, sekolah, kantor, dan sebagainya.</p>
                             <div class="d-flex">
                                 <a href="pages/prasasti"
-                                    class="btn btn-detail-product btn-outline-warning btn-sm rounded-pill px-4 fw-semibold text-black">
+                                    class="btn btn-detail-product btn-outline-warning btn-sm rounded px-4 fw-semibold text-black">
                                     Lihat Produk >
                                 </a>
                             </div>
@@ -120,7 +120,7 @@
                             <p>Kijing makam dengan beragam model dan material berkualitas.</p>
                             <div class="d-flex">
                                 <a href="pages/kijing"
-                                    class="btn btn-detail-product btn-outline-warning btn-sm rounded-pill px-4 fw-semibold text-black"
+                                    class="btn btn-detail-product btn-outline-warning btn-sm rounded px-4 fw-semibold text-black"
                                     style="">
                                     Lihat Produk >
                                 </a>
@@ -136,7 +136,7 @@
                             <p>Kepala Kijing sebagai penanda utama dan identitas makam.</p>
                             <div class="d-flex">
                                 <a href="pages/kepalakijing"
-                                    class="btn btn-detail-product btn-outline-warning btn-sm rounded-pill px-4 fw-semibold text-black">
+                                    class="btn btn-detail-product btn-outline-warning btn-sm rounded px-4 fw-semibold text-black">
                                     Lihat Produk >
                                 </a>
                             </div>
@@ -148,34 +148,72 @@
         </div>
     </div>
 
-    <div class="min-vh-80 w-100 pb-5 mb-5" id="blog" style="display: flex; flex-direction: column; align-items: center;">
-      <p class="title-produk text-center fw-semibold pb-5" style="text-decoration: underline;">Blog</p>
-        <div class="d-flex justify-content-center" style="gap: 5rem; flex-wrap: wrap;">
-        @foreach ($blogs as $blog)
-        <a href="{{ url('blog/'.$blog->id) }}">
-            <div class="card" style="width: 24rem;">
-                <img src="{{ asset('storage/' . $blog->thumbnail) }}" class="card-img-top mb-3" style="height: 14rem;" alt="Blog image">
-                <div class="d-flex align-items-center ms-3 mb-2" style="gap: 0.5rem; padding-right: 1rem;">
-                    <h5 class="m-0 title-blog" style="flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
-                        {{ $blog->title }}
-                    </h5>
-                    <span style="font-size: 0.85rem; color: gray; white-space: nowrap;">{{$blog->created_at->format('d F Y')}}</span>
-                </div>
-                <div class="card-body">
-                    <p class="card-text text-truncate">
-                        {!! substr($blog->text, 0, 100) . '...' !!}
-                    </p>
-                    <div class="mt-3">
-                        @foreach (explode(',', $blog->tags) as $tag)
-                            <button class="btn btn-sm btn-outline-warning rounded-pill px-3 my-1"> #{{ trim($tag) }}</button>
-                        @endforeach
-                    </div>
-                </div>
+
+<div class="min-vh-80 w-100 pb-5 mb-5" id="blog" style="display: flex; flex-direction: column; align-items: center;">
+  <p class="title-produk text-center fw-semibold pb-5" style="text-decoration: underline;">Blog</p>
+
+  <div class="w-100 px-3">
+    {{-- MOBILE: Horizontal scroll --}}
+    <div class="d-flex d-md-none flex-nowrap overflow-auto" style="gap: 1.5rem; padding-bottom: 1rem; align-items: stretch;">
+      @foreach ($blogs as $blog)
+        <a href="{{ url('blog/'.$blog->id) }}" class="text-decoration-none flex-shrink-0" style="min-width: 80vw; max-width: 80vw;">
+          <div class="card h-100 d-flex flex-column">
+            <img src="{{ asset('storage/' . $blog->thumbnail) }}" class="card-img-top mb-3" style="height: 14rem; object-fit: cover;" alt="Blog image">
+            <div class="d-flex align-items-center ms-3 mb-2" style="gap: 0.5rem; padding-right: 1rem;">
+              <h5 class="m-0 title-blog" style="flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                {{ $blog->title }}
+              </h5>
+              <span style="font-size: 0.85rem; color: gray; white-space: nowrap;">{{ $blog->created_at->format('d F Y') }}</span>
             </div>
+            <div class="card-body d-flex flex-column justify-content-between">
+              <p class="card-text">
+                {!! substr($blog->text, 0, 100) . '...' !!}
+              </p>
+              <div class="mt-3">
+                @foreach (explode(',', $blog->tags) as $tag)
+                  <button class="btn btn-sm btn-outline-warning rounded-pill px-3 my-1"> #{{ trim($tag) }}</button>
+                @endforeach
+              </div>
+            </div>
+          </div>
         </a>
-        @endforeach
-        </div>
+      @endforeach
     </div>
+
+    {{-- DESKTOP: Grid 3 kolom --}}
+    <div class="d-none d-md-flex flex-wrap justify-content-center" style="gap: 2rem;">
+      @foreach ($blogs as $blog)
+        <a href="{{ url('blog/'.$blog->id) }}" class="text-decoration-none" style="width: 24rem;">
+          <div class="card h-100 d-flex flex-column">
+            <img src="{{ asset('storage/' . $blog->thumbnail) }}" class="card-img-top mb-3" style="height: 14rem; object-fit: cover;" alt="Blog image">
+            <div class="d-flex align-items-center ms-3 mb-2" style="gap: 0.5rem; padding-right: 1rem;">
+              <h5 class="m-0 title-blog" style="flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                {{ $blog->title }}
+              </h5>
+              <span style="font-size: 0.85rem; color: gray; white-space: nowrap;">{{ $blog->created_at->format('d F Y') }}</span>
+            </div>
+            <div class="card-body d-flex flex-column justify-content-between">
+              <p class="card-text">
+                {!! substr($blog->text, 0, 100) . '...' !!}
+              </p>
+              <div class="mt-3">
+                @foreach (explode(',', $blog->tags) as $tag)
+                  <button class="btn btn-sm btn-outline-warning rounded-pill px-3 my-1"> #{{ trim($tag) }}</button>
+                @endforeach
+              </div>
+            </div>
+          </div>
+        </a>
+      @endforeach
+    </div>
+    <div class="w-full d-flex align-items-center justify-content-center mt-4">
+        <a href="{{ route('blogs') }}" class="btn fw-semibold px-4 py-2" style="background-color: var(--maincolor)">Jelajahi Blog ></a>
+    </div>
+  </div>
+</div>
+
+
+
 
     <div class="footer w-100 d-flex flex-column justify-content-between mt-5" style="min-height: 60vh;">
         <div class="main-footer d-flex justify-content-between align-items-center p-5">
