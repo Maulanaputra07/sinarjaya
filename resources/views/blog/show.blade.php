@@ -60,6 +60,12 @@
         </div>
     </div>
 
+    <div id="imagePreview" class="preview-container d-none">
+        <div class="backdrop"></div>
+        <button class="close-preview" onclick="closePreview()">x</button>
+        <img id="previewImg" class="preview-img" src="" alt="Preview">
+    </div>
+
     <main class="container-fluid px-3 px-md-5" style="margin-top: 100px;">
         <div class="w-100">
             <img src="{{ asset('storage/' . $blog->thumbnail) }}"

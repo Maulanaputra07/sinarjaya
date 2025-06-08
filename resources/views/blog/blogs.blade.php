@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sinar Jaya Prasasti - {{$kategori}}</title>
+    <title>Sinar Jaya Prasasti </title>
     <link rel="stylesheet" href="{{ asset('src/css/bootstrap.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('src/css/style.css') }}" />
 </head>
@@ -53,31 +53,24 @@
     </div>
 
     <div class="content" style="margin-top: 4rem;">
-        <div class="" style="min-height: 50vh">
-            <div class="card-title-produk d-flex align-items-center ps-5" style="background: url('{{asset('images/thumbnail'.$kategori.'.jpeg')}}'); background-size: cover; background-position: center;">
-                <p class="title-detail-produk fs-1 ps-5 fw-semibold d-flex align-items-center" style="background-color: rgba(255,255,255,0.85);">{{ ucfirst($kategori) }}</p>
-            </div>
+        <p class="title-produk text-center fw-semibold pb-5" style="text-decoration: underline;">Daftar Blog</p>
+
+        <div class="d-flex justify-content-end w-100">
+            <form method="GET" action="{{ route('blogs') }}">
+                <div class="mb-3 pe-5">
+                    <select name="category" class="form-select w-100" onchange="this.form.submit()">
+                        <option value="">All</option>
+                        @foreach ($categories as $cat)
+                            <option value="{{ $cat }}" {{ request('category') == $cat ? 'selected' : '' }}>
+                                {{ $cat }}
+                            </option>
+                        @endforeach
+                    </select>
+                </div>
+            </form>
         </div>
-        <div class="p-5">
-            <div class="grid-layout">
-                @foreach ($images as $index => $img)
-                @php
-                    $class = match ($index % 5) {
-                        0 => 'span-2x2',
-                        1 => 'span-2x1',
-                        2 => 'span-1x2',
-                        default => '',
-                    };
-                @endphp
-                <div class="grid-item {{ $class }}" style="background-image: url('{{ asset($img) }}')"></div>
-                @endforeach
-            </div>
-        </div>
-        <span>
-            <p class="fs-1 text-center my-3 fw-semibold" style="text-decoration: underline">
-                Blogs {{$kategori}}
-            </p>
-        </span>
+
+
         <div class="d-flex justify-content-center" style="gap: 5rem; flex-wrap: wrap;">
             @foreach ($blogs as $blog)
             <a href="{{ url('blog/'.$blog->id) }}">
