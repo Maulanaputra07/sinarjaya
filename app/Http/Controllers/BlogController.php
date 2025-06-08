@@ -17,7 +17,7 @@ class BlogController extends Controller
             $query->where('category', $request->category);
         }
 
-        $blogs = $query->latest()->paginate(10);
+        $blogs = $query->latest();
 
         return view('blog.blogs', compact('blogs', 'categories'));
         return response()->json($blogs);
